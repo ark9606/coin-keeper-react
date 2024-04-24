@@ -8,7 +8,7 @@ import 'dotenv/config'
 // https://vitejs.dev/config/
 export default defineConfig({
   // base: APP_BASE_URL,
-  base: undefined,
+  base: '',
   plugins: [react()],
   css: {
     preprocessorOptions: {
