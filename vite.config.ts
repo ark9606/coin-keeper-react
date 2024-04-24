@@ -1,11 +1,12 @@
 import { defineConfig } from 'vite'
-// import { resolve } from 'path'
 import react from '@vitejs/plugin-react'
 import sass from 'sass'
 
+const APP_BASE_URL = process.env.APP_BASE_URL || '';
+
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: 'https://ark9606.github.io/coin-keeper-react',
+  base: APP_BASE_URL,
   plugins: [react()],
   css: {
     preprocessorOptions: {
@@ -14,12 +15,4 @@ export default defineConfig({
       },
     },
   },
-  // build: {
-  //   rollupOptions: {
-  //     input: {
-  //       main: resolve(__dirname, 'index.html'),
-  //       // nested: resolve(__dirname, 'nested/index.html'),
-  //     },
-  //   },
-  // },
 })
