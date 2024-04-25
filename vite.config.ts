@@ -16,7 +16,7 @@ export default defineConfig(({mode}) => {
   const env = loadEnv(mode, process.cwd(), '');
   const processEnv: Record<string, string> = {};
   cherryPickedKeys.forEach(key => processEnv[key] = env[key]);
-  // console.log('env  ', env);
+  console.log('processEnv', processEnv);
 
   return {
     // base: APP_BASE_URL,
