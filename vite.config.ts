@@ -16,6 +16,7 @@ export default defineConfig(({mode}) => {
   const env = loadEnv(mode, process.cwd(), '');
   const processEnv: Record<string, string> = {};
   cherryPickedKeys.forEach(key => processEnv[key] = env[key]);
+  
   console.log('processEnv', processEnv);
 
   return {
