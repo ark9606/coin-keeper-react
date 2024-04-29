@@ -3,14 +3,28 @@
 // import viteLogo from '/vite.svg'
 import './App.scss'
 import { RouterProvider } from 'react-router-dom'
-import { AppRouter } from './Router'
+import { createRouter } from './Router'
+import { useState } from 'react';
+
 
 function App() {
-  // const [count, setCount] = useState(0)
+  const [expenses, setExpense] = useState<string[]>([]);
+
+  function handleNewExpense(newExpense: string) {
+    setExpense(expenses.slice().concat(newExpense));
+    // console.log('all expenses', expenses);
+  }
+  const router = createRouter({handleNewExpense, expenses});
+
+  // todo check how to use useMemo
+  // const router = useMemo(() => {
+  //   return createRouter({handleNewExpense, expenses});
+  // }, [expenses, handleNewExpense]);
+
 
   return (
     <>
-      <RouterProvider router={AppRouter}/>
+      <RouterProvider router={router}/>
     </>
   )
 }

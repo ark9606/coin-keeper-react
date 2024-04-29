@@ -11,17 +11,37 @@ const basename = '';
 // const basename = '/coin-keeper-react';
 // const basename = process?.env?.NODE_ENV === 'production' ? process?.env?.APP_BASE_URL : '';
 
-export const AppRouter = createBrowserRouter([
-  {
-    path: "/",
-    element: <AddExpense />,
-  },
-  {
-    path: "/history",
-    element: <FullHistory />,
-  },
-  {
-    path: "/analytics",
-    element: <Analytics />,
-  },
-], {basename});
+export const createRouter = (params: {
+  handleNewExpense: (newExpense: string) => void;
+  expenses: string[];
+}) => {
+  return createBrowserRouter([
+    {
+      path: "/",
+      element: <AddExpense onAddExpense={params.handleNewExpense} expenses={params.expenses} />,
+    },
+    {
+      path: "/history",
+      element: <FullHistory />,
+    },
+    {
+      path: "/analytics",
+      element: <Analytics />,
+    },
+  ], {basename});
+};
+
+// export const AppRouter = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: <AddExpense />,
+//   },
+//   {
+//     path: "/history",
+//     element: <FullHistory />,
+//   },
+//   {
+//     path: "/analytics",
+//     element: <Analytics />,
+//   },
+// ], {basename});

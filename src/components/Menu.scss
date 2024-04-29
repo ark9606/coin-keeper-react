@@ -13,8 +13,8 @@ nav#menu ul {
 
   li {
     list-style: none;
-    padding: 10px 20px;
     background-color: rgb(186, 186, 186);
+
     //border-radius: 5px;
     //margin: 0 5px;
     //transition: background-color 0.3s;
@@ -22,6 +22,13 @@ nav#menu ul {
 
     &:hover {
       background-color: #f2f2f2;
+    }
+
+    a {
+      display: block;
+      padding: 10px 20px;
+      // height: 100%;
+      // width: 100%;
     }
   }
 }
